@@ -125,23 +125,6 @@ def run():
     #convertfile("objektivnepriprijmu",0.7,"")
 
 
-def provest_konverzaci1(chat_historie, nova_zprava):
-    # Přidat novou zprávu do chatovací historie
-    chat_historie.append({"role": "system", "content": "Ty: " + nova_zprava})
-
-    # Volat OpenAI API pro odpověď na poslední zprávu
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Můžete použít jiný model podle vašich preferencí
-        messages=chat_historie
-    )
-
-    # Získat odpověď z modelu
-    nova_odpoved = response.choices[0].message['content']
-    return nova_odpoved
-
-
-
-
 
 def main():
     print("start...")
